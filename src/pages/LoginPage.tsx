@@ -77,8 +77,6 @@ export default function LoginPage() {
           }}
           className="bg-white dark:bg-[#22262e] rounded-3xl shadow-soft-lg p-6 space-y-5"
         >
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Tekrar hoş geldiniz</h2>
-
           <Input
             label="Kullanıcı adı"
             type="text"

@@ -38,7 +38,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark flex flex-col">
-      <div className="relative bg-gradient-to-br from-primary via-primary to-emerald-800 px-6 pt-20 pb-28 rounded-b-[2.5rem] overflow-hidden">
+      <div className="relative bg-gradient-to-br from-primary via-primary to-emerald-800 px-6 pt-12 pb-14 rounded-b-[2.5rem] overflow-hidden">
         <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-gold/20 blur-3xl" />
         <div className="absolute bottom-0 -left-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
@@ -68,7 +68,7 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="flex-1 -mt-14 px-6 pb-8"
+        className="flex-1 -mt-10 px-6 pb-8"
       >
         <form
           onSubmit={(e) => {
@@ -77,10 +77,7 @@ export default function LoginPage() {
           }}
           className="bg-white dark:bg-[#22262e] rounded-3xl shadow-soft-lg p-6 space-y-5"
         >
-          <div className="mb-1">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Tekrar hoş geldiniz</h2>
-            <p className="text-sm text-gray-400">Devam etmek için giriş yapın.</p>
-          </div>
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Tekrar hoş geldiniz</h2>
 
           <Input
             label="Kullanıcı adı"
@@ -115,10 +112,6 @@ export default function LoginPage() {
             Giriş Yap
           </Button>
         </form>
-
-        <p className="text-center text-xs text-gray-400 mt-6">
-          Yalnızca yönetici tarafından oluşturulan kullanıcı hesapları ile giriş yapılır.
-        </p>
       </motion.div>
     </div>
   );

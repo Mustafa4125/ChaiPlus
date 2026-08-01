@@ -1,0 +1,360 @@
+export const categories = ['Tümü', 'Çay', 'Kahve', 'Soğuk İçecek'];
+
+export const products = [
+  {
+    id: 'p1',
+    name: 'Çay',
+    description: 'Geleneksel Türk çayı, sıcak ve aromatik.',
+    price: 1,
+    image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=400&fit=crop',
+    category: 'Çay',
+    isPopular: true,
+    rating: 4.9,
+    prepTime: '5 dk',
+    calories: 120,
+    tags: ['Popüler', 'Sıcak'],
+  },
+  {
+    id: 'p2',
+    name: 'Türk Kahvesi',
+    description: 'Klasik Türk kahvesi, yoğun ve dengeli.',
+    price: 4,
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
+    category: 'Kahve',
+    isPopular: true,
+    rating: 4.8,
+    prepTime: '7 dk',
+    calories: 180,
+    tags: ['Klasik', 'Popüler'],
+  },
+  {
+    id: 'p3',
+    name: 'Nescafe',
+    description: 'Hızlı ve dengeli kahve deneyimi.',
+    price: 2,
+    image: 'https://images.unsplash.com/photo-1517705008128-361805f42e86?w=400&h=400&fit=crop',
+    category: 'Kahve',
+    rating: 4.7,
+    prepTime: '4 dk',
+    calories: 210,
+    tags: ['Hızlı'],
+  },
+  {
+    id: 'p4',
+    name: 'Elmalı Soda',
+    description: 'Elma aromasıyla ferahlatan soda.',
+    price: 3,
+    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    rating: 4.6,
+    prepTime: '5 dk',
+    calories: 5,
+    tags: ['Serin'],
+  },
+  {
+    id: 'p5',
+    name: 'Limonlu Soda',
+    description: 'Limon notalarıyla taze soda.',
+    price: 3,
+    image: 'https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    isPopular: true,
+    rating: 4.9,
+    prepTime: '6 dk',
+    calories: 195,
+    tags: ['Taze', 'Popüler'],
+  },
+  {
+    id: 'p6',
+    name: 'Limonata',
+    description: 'Serin ve doğal limonata.',
+    price: 5,
+    image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    rating: 4.5,
+    prepTime: '8 dk',
+    calories: 320,
+    tags: ['Serin'],
+  },
+  {
+    id: 'p7',
+    name: 'Kutu Kola',
+    description: 'Klasik kutu kola.',
+    price: 4,
+    image: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    rating: 4.8,
+    prepTime: '2 dk',
+    calories: 280,
+    tags: ['Klasik'],
+  },
+  {
+    id: 'p8',
+    name: 'Şişe Kola',
+    description: 'Şişe kola, klasik lezzet.',
+    price: 5,
+    image: 'https://images.unsplash.com/photo-1600952841320-db92ec4047ca?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    rating: 4.7,
+    prepTime: '3 dk',
+    calories: 165,
+    tags: ['Klasik'],
+  },
+  {
+    id: 'p9',
+    name: 'Şeftali Ice Tea',
+    description: 'Şeftali aromalı ice tea.',
+    price: 4,
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=400&fit=crop',
+    category: 'Soğuk İçecek',
+    rating: 4.8,
+    prepTime: '3 dk',
+    calories: 140,
+    tags: ['Serin', 'Popüler'],
+  },
+];
+
+export const favoriteOrders = [
+  {
+    id: 'fo1',
+    name: 'Sabah Rutini',
+    items: [
+      { productId: 'p1', name: 'Çay', quantity: 2, price: 1, size: 'Orta', extras: [] },
+      { productId: 'p6', name: 'Limonata', quantity: 1, price: 5, size: 'Orta', extras: [] },
+    ],
+    total: 7,
+    orderCount: 24,
+  },
+  {
+    id: 'fo2',
+    name: 'Toplantı Seti',
+    items: [
+      { productId: 'p2', name: 'Türk Kahvesi', quantity: 4, price: 4, size: 'Büyük', extras: [] },
+      { productId: 'p9', name: 'Şeftali Ice Tea', quantity: 2, price: 4, size: 'Orta', extras: [] },
+    ],
+    total: 24,
+    orderCount: 12,
+  },
+  {
+    id: 'fo3',
+    name: 'Yaz Ferahlığı',
+    items: [
+      { productId: 'p5', name: 'Limonlu Soda', quantity: 3, price: 3, size: 'Büyük', extras: [] },
+      { productId: 'p8', name: 'Şişe Kola', quantity: 2, price: 5, size: 'Orta', extras: [] },
+    ],
+    total: 19,
+    orderCount: 8,
+  },
+];
+
+export const orders = [
+  {
+    id: 'ORD-2026-001',
+    items: [
+      { productId: 'p1', name: 'Çay', quantity: 2, price: 1, size: 'Orta', extras: [] },
+      { productId: 'p6', name: 'Limonata', quantity: 1, price: 5, size: 'Orta', extras: [] },
+    ],
+    total: 7,
+    status: 'delivered' as const,
+    createdAt: '2026-07-30T09:15:00',
+    deliveryAddress: 'Levent Plaza, Kat 12, İstanbul',
+    paymentMethod: 'Marka Bakiyesi',
+    estimatedTime: '25 dk',
+  },
+  {
+    id: 'ORD-2026-002',
+    items: [
+      { productId: 'p2', name: 'Türk Kahvesi', quantity: 1, price: 4, size: 'Büyük', extras: [] },
+      { productId: 'p9', name: 'Şeftali Ice Tea', quantity: 1, price: 4, size: 'Orta', extras: [] },
+    ],
+    total: 8,
+    status: 'preparing' as const,
+    createdAt: '2026-07-31T08:30:00',
+    deliveryAddress: 'Levent Plaza, Kat 12, İstanbul',
+    paymentMethod: 'Marka Bakiyesi',
+    estimatedTime: '18 dk',
+  },
+  {
+    id: 'ORD-2026-003',
+    items: [
+      { productId: 'p5', name: 'Limonlu Soda', quantity: 3, price: 3, size: 'Büyük', extras: [] },
+    ],
+    total: 9,
+    status: 'yolda' as const,
+    createdAt: '2026-07-31T10:00:00',
+    deliveryAddress: 'Levent Plaza, Kat 12, İstanbul',
+    paymentMethod: 'Marka Bakiyesi',
+    estimatedTime: '5 dk',
+  },
+  {
+    id: 'ORD-2026-004',
+    items: [
+      { productId: 'p3', name: 'Nescafe', quantity: 2, price: 2, size: 'Orta', extras: [] },
+    ],
+    total: 4,
+    status: 'pending' as const,
+    createdAt: '2026-07-31T10:45:00',
+    deliveryAddress: 'Maslak 42, Kat 5, İstanbul',
+    paymentMethod: 'Marka Bakiyesi',
+    estimatedTime: '22 dk',
+  },
+];
+
+export const notifications = [
+  {
+    id: 'n1',
+    title: 'Siparişiniz hazırlanıyor',
+    message: 'Siparişiniz mutfakta hazırlanıyor. Yakında hazır olacak.',
+    type: 'order' as const,
+    read: false,
+    createdAt: '2026-07-31T08:32:00',
+  },
+  {
+    id: 'n2',
+    title: 'Siparişiniz yola çıktı',
+    message: 'Siparişiniz teslimat ekibine teslim edildi. Kısa süre içinde yanında olacaksınız.',
+    type: 'order' as const,
+    read: false,
+    createdAt: '2026-07-31T10:05:00',
+  },
+  {
+    id: 'n3',
+    title: 'Siparişiniz teslim edildi',
+    message: 'Siparişiniz başarıyla teslim edildi. Keyifli bir deneyim yaşadığınız için teşekkür ederiz.',
+    type: 'order' as const,
+    read: true,
+    createdAt: '2026-07-29T14:00:00',
+  },
+  {
+    id: 'n4',
+    title: 'Marka yüklendi',
+    message: 'Marka bakiyenize 100 Marka eklendi.',
+    type: 'system' as const,
+    read: true,
+    createdAt: '2026-07-28T11:30:00',
+  },
+  {
+    id: 'n5',
+    title: 'Favori sipariş oluşturuldu',
+    message: 'Yeni favori siparişiniz kaydedildi. Tekrar sipariş vermek çok kolay.',
+    type: 'promo' as const,
+    read: true,
+    createdAt: '2026-07-25T09:00:00',
+  },
+  {
+    id: 'n6',
+    title: 'Yeni kampanya',
+    message: 'Soğuk içeceklerde bugün özel fırsat var. Hemen keşfedin.',
+    type: 'promo' as const,
+    read: false,
+    createdAt: '2026-08-01T08:00:00',
+  },
+];
+
+export const brandBalance = {
+  customerName: 'Ayşe Yılmaz',
+  balance: 100,
+  currency: 'Marka',
+  lastTopUp: '2026-07-28',
+  transactions: [
+    { id: 't1', type: 'credit' as const, amount: 100, description: 'Admin tarafından marka yükleme', date: '2026-07-28' },
+    { id: 't2', type: 'debit' as const, amount: 1, description: 'Sipariş ORD-2026-001', date: '2026-07-30' },
+    { id: 't3', type: 'debit' as const, amount: 2, description: 'Sipariş ORD-2026-002', date: '2026-07-31' },
+  ],
+};
+
+export const customers = [
+  {
+    id: 'c1',
+    name: 'Ayşe Yılmaz',
+    email: 'ayse@techcorp.com',
+    phone: '+90 532 111 2233',
+    totalOrders: 47,
+    totalSpent: 4250,
+    lastOrder: '2026-07-31',
+    status: 'active' as const,
+    avatar: 'https://i.pravatar.cc/150?u=ayse',
+  },
+  {
+    id: 'c2',
+    name: 'Mehmet Kaya',
+    email: 'mehmet@techcorp.com',
+    phone: '+90 533 222 3344',
+    totalOrders: 32,
+    totalSpent: 2890,
+    lastOrder: '2026-07-30',
+    status: 'active' as const,
+    avatar: 'https://i.pravatar.cc/150?u=mehmet',
+  },
+  {
+    id: 'c3',
+    name: 'Zeynep Demir',
+    email: 'zeynep@techcorp.com',
+    phone: '+90 534 333 4455',
+    totalOrders: 18,
+    totalSpent: 1560,
+    lastOrder: '2026-07-28',
+    status: 'active' as const,
+    avatar: 'https://i.pravatar.cc/150?u=zeynep',
+  },
+  {
+    id: 'c4',
+    name: 'Can Öztürk',
+    email: 'can@techcorp.com',
+    phone: '+90 535 444 5566',
+    totalOrders: 5,
+    totalSpent: 420,
+    lastOrder: '2026-07-15',
+    status: 'inactive' as const,
+    avatar: 'https://i.pravatar.cc/150?u=can',
+  },
+  {
+    id: 'c5',
+    name: 'Elif Arslan',
+    email: 'elif@techcorp.com',
+    phone: '+90 536 555 6677',
+    totalOrders: 61,
+    totalSpent: 5830,
+    lastOrder: '2026-07-31',
+    status: 'active' as const,
+    avatar: 'https://i.pravatar.cc/150?u=elif',
+  },
+];
+
+export const adminStats = {
+  totalOrders: 1247,
+  totalRevenue: 89450,
+  activeCustomers: 156,
+  pendingOrders: 8,
+  todayOrders: 34,
+  popularProduct: 'Çay',
+};
+
+export const demoUser = {
+  id: 'u1',
+  name: 'Ayşe Yılmaz',
+  email: 'ayse@techcorp.com',
+  phone: '+90 532 111 2233',
+  avatar: 'https://i.pravatar.cc/150?u=ayse',
+  role: 'customer' as const,
+};
+
+export const demoAdmin = {
+  id: 'admin1',
+  name: 'Admin Kullanıcı',
+  email: 'admin@chaiplus.com',
+  phone: '+90 212 000 0000',
+  avatar: 'https://i.pravatar.cc/150?u=admin',
+  role: 'admin' as const,
+};
+
+export const sizeOptions = ['Küçük', 'Orta', 'Büyük'] as const;
+export const extraOptions = ['Ekstra Süt', 'Ekstra Buz', 'Safran', 'Bal', 'Tarçın'];
+
+export const sizePriceModifier: Record<string, number> = {
+  Küçük: 0,
+  Orta: 0,
+  Büyük: 0,
+};
+
+export const extraPrice = 0;

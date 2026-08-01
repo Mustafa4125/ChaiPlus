@@ -1,0 +1,27 @@
+{
+  "name": "ChaiPlus",
+  "short_name": "ChaiPlus",
+  "description": "Çay ve kahve işletmeleri için Marka bazlı mobil sipariş ve yönetim deneyimi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f4ee",
+  "theme_color": "#1f6f43",
+  "lang": "tr",
+  "categories": ["shopping", "food", "business"],
+  "icons": [
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

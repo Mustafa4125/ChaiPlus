@@ -1,5 +1,10 @@
 import { initializeApp, getApps, type FirebaseApp } from 'firebase/app';
-import { getAuth, type Auth } from 'firebase/auth';
+import {
+  getAuth,
+  setPersistence,
+  browserLocalPersistence,
+  type Auth,
+} from 'firebase/auth';
 import { getFirestore, type Firestore } from 'firebase/firestore';
 import { getAnalytics, type Analytics, isSupported as isAnalyticsSupported } from 'firebase/analytics';
 import { getStorage, type FirebaseStorage } from 'firebase/storage';
@@ -51,6 +56,10 @@ export const initializeFirebase = async () => {
   }
 
   auth = getAuth(app);
+  // Oturumu tarayıcıda kalıcı tut
+  await setPersistence(auth, browserLocalPersistence);
+
+  
   db = getFirestore(app);
   storage = getStorage(app);
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, CheckCircle, XCircle } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
@@ -19,14 +19,60 @@ export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [filter, setFilter] = useState<OrderStatus | 'all'>('all');
   const [search, setSearch] = useState('');
+  const previousOrderIds = useRef<string[]>([]);
 
   useEffect(() => {
+    
     const unsubscribe = subscribeToOrders(undefined, setOrders, (error) => {
       const message = error instanceof Error ? error.message : 'Siparişler yüklenemedi.';
       addToast(message, 'error');
     });
     return unsubscribe;
   }, []);
+
+  useEffect(() => {
+  if (orders.length === 0) return;
+
+  // İlk açılışta mevcut siparişleri hafızaya al
+  if (previousOrderIds.current.length === 0) {
+    previousOrderIds.current = orders.map((o) => o.id);
+    return;
+  }
+
+  // Yeni gelen siparişleri bul
+  const newOrders = orders.filter(
+    (o) => !previousOrderIds.current.includes(o.id)
+  );
+
+  if (newOrders.length > 0) {
+    const newest = newOrders[0];
+
+    // Bildirim göster
+    if ("Notification" in window && Notification.permission === "granted") {
+      new Notification("☕ Yeni Sipariş", {
+        body: `${newest.items
+          .map((i) => `${i.quantity}x ${i.name}`)
+          .join(", ")}`,
+        icon: "/icon-192.png",
+      });
+    }
+
+    // Ses çal
+    try {
+      const audio = new Audio("/notification.mp3");
+      audio.play().catch(() => {});
+    } catch {}
+
+    // Titreşim
+    if ("vibrate" in navigator) {
+      navigator.vibrate([300, 200, 300]);
+    }
+
+    addToast("☕ Yeni sipariş geldi!", "success");
+  }
+
+  previousOrderIds.current = orders.map((o) => o.id);
+}, [orders, addToast]);
 
   const filtered = orders.filter((o) => {
     const matchStatus = filter === 'all' || o.status === filter;

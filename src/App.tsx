@@ -1,4 +1,4 @@
-import { Component, type ReactNode } from 'react';
+import { Component, type ReactNode, useEffect } from 'react';
 import { ToastContainer } from '@/components/ui/Toast';
 import AppRoutes from '@/routes/index';
 
@@ -19,7 +19,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
           <p className="text-xl font-bold text-gray-800">Bir hata oluştu.</p>
           <p className="text-sm text-gray-500">Sayfayı yenileyin veya tekrar giriş yapın.</p>
           <button
-            onClick={() => window.location.href = '/login'}
+            onClick={() => (window.location.href = '/login')}
             className="mt-2 rounded-2xl bg-primary px-6 py-3 text-sm font-semibold text-white"
           >
             Giriş Sayfasına Dön
@@ -27,13 +27,25 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
         </div>
       );
     }
+
     return this.props.children;
   }
+}
+
+function NotificationPermission() {
+  useEffect(() => {
+    if ("Notification" in window) {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  return null;
 }
 
 export default function App() {
   return (
     <ErrorBoundary>
+      <NotificationPermission />
       <AppRoutes />
       <ToastContainer />
     </ErrorBoundary>

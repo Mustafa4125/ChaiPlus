@@ -33,6 +33,37 @@ export default function AdminOrdersPage() {
   useEffect(() => {
   if (orders.length === 0) return;
 
+  // İlk yüklemede mevcut siparişleri hafızaya al
+  if (previousOrderIds.current.length === 0) {
+    previousOrderIds.current = orders.map((o) => o.id);
+    return;
+  }
+
+  // Sonradan gelen yeni siparişleri bul
+  const newOrders = orders.filter(
+    (o) => !previousOrderIds.current.includes(o.id)
+  );
+
+  if (newOrders.length > 0) {
+    const newest = newOrders[0];
+
+    // Bildirim
+    new Notification("☕ Yeni Sipariş!", {
+      body: newest.items
+        .map((i) => `${i.quantity}x ${i.name}`)
+        .join(", "),
+      icon: "/icon-192.png",
+    });
+
+    addToast("☕ Yeni sipariş geldi!", "success");
+  }
+
+  previousOrderIds.current = orders.map((o) => o.id);
+}, [orders, addToast]);
+
+  useEffect(() => {
+  if (orders.length === 0) return;
+
   // İlk açılışta mevcut siparişleri hafızaya al
   if (previousOrderIds.current.length === 0) {
     previousOrderIds.current = orders.map((o) => o.id);

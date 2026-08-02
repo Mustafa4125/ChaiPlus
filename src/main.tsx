@@ -5,6 +5,7 @@ import App from './App';
 import './styles.css';
 import { initializeDataSource } from '@/services/dataSource';
 import { registerForegroundMessaging } from '@/services/firebase/notifications';
+import { useAuthStore } from '@/store/auth';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,18 +13,22 @@ const queryClient = new QueryClient({
   },
 });
 
-void initializeDataSource();
+(async () => {
+  await initializeDataSource();
 
-if ('serviceWorker' in navigator) {
-  void navigator.serviceWorker.register('/sw.js').catch(() => undefined);
-}
+  useAuthStore.getState().hydrate();
 
-void registerForegroundMessaging();
+  if ('serviceWorker' in navigator) {
+    void navigator.serviceWorker.register('/sw.js').catch(() => undefined);
+  }
 
-createRoot(document.getElementById('root')!).render(
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </QueryClientProvider>,
-);
+  void registerForegroundMessaging();
+
+  createRoot(document.getElementById('root')!).render(
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>,
+  );
+})();

@@ -2,13 +2,43 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Leaf } from 'lucide-react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { getFirebaseAuth } from '@/services/firebase/firebase';
+import { getUserProfileByUid } from '@/services/firebase/users';
 
 export default function SplashScreen() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => navigate('/login'), 2800);
-    return () => clearTimeout(timer);
+    const auth = getFirebaseAuth();
+
+    if (!auth) {
+      const timer = setTimeout(() => navigate('/login'), 2800);
+      return () => clearTimeout(timer);
+    }
+
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (!firebaseUser) {
+        setTimeout(() => navigate('/login'), 2800);
+        return;
+      }
+
+      try {
+        const profile = await getUserProfileByUid(firebaseUser.uid);
+
+        setTimeout(() => {
+          if (profile?.role === 'admin') {
+            navigate('/admin');
+          } else {
+            navigate('/home');
+          }
+        }, 2800);
+      } catch {
+        setTimeout(() => navigate('/login'), 2800);
+      }
+    });
+
+    return () => unsubscribe();
   }, [navigate]);
 
   return (
